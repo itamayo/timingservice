@@ -44,7 +44,8 @@ require([
   var buttons = {
     play: document.getElementById('play'),
     pause: document.getElementById('pause'),
-    stop: document.getElementById('stop')
+    stop: document.getElementById('stop'),
+    new: document.getElementById('createNew')
   };
   var info = {
     timing: {
@@ -89,6 +90,14 @@ require([
     controller.pause();
     controller.currentTime = 0.0;
   });
+  buttons.new.addEventListener('click', function () {
+    logger.info('create New');
+    controller.pause();
+    video.src = "http://150.241.250.4:6676/election_demo/ETB2_new.mp4";
+    controller.play();
+  //  controller.currentTime = 0.0;
+  });
+
 
 
   /**********************************************************************
@@ -165,5 +174,6 @@ require([
     buttons.play.disabled = false;
     buttons.pause.disabled = false;
     buttons.stop.disabled = false;
+    buttons.new.disabled = false;
   };
 });
